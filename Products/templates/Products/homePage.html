@@ -19,7 +19,7 @@
         {% for product in products %}
         <tr>
           <td>
-            {{product.id}}
+            <a href="{% url 'view' product.id%}">{{product.id}}</a>
           </td>
           <td>
             {{product.pName}}
@@ -31,7 +31,7 @@
             {{product.shopContact}}
           </td>
           <td>
-            {{product.pAmount}}
+            {{product.pAmount1}} <p>$</p>
           </td>
         </tr>
         {%endfor%}

@@ -19,17 +19,23 @@ def home(request):
     prod = product.objects.all()
     return render(request , 'Products/homePage.html' ,{"products" : prod})
 
-def edit(request, id):  
-    product = product.objects.get(id=id)  
-    return render(request,'edit.html', {'product':product})  
-def update(request, id):  
-    product = product.objects.get(id=id)  
-    form = product(request.POST, instance = product)  
-    if form.is_valid():  
+def view(request, product_id):  
+     products = product.objects.get(id=product_id)  
+     return render(request,'Products/view.html', {'product':products})  
+    
+    
+def edit(request, product_id):  
+     products = product.objects.get(id=product_id)  
+     return render(request,'Products/edit.html', {'product':products})  
+  
+    
+def update(request,product_id):  
+    if request.method == 'POST':
+     products = product.objects.get(id=product_id)  
+     form = productForm(request.POST,instance=products)  
+     print(form)
+     print(products)
+     if form.is_valid():  
         form.save()  
-        return redirect("/show")  
-    return render(request, 'edit.html', {'product': product})  
-def destroy(request, id):  
-    product = product.objects.get(id=id)  
-    product.delete()  
-    return redirect("/show")
+        return HttpResponseRedirect(reverse("home"))
+    return render(request, 'Products/edit.html', {'product':products})      

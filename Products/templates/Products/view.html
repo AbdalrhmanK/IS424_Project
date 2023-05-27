@@ -1,0 +1,22 @@
+{%extends 'Products/layout.html'%}
+{%load static%}
+
+
+{%block body%}
+<link rel="stylesheet" href="{% static 'Products/homePage.css'%}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Mukta:wght@300;400;600;700;800&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<h1>Product details</h1>
+
+<ul>
+    <li>{{product.pName}}</li>
+    <li>{{product.nameShop}}</li>
+    <li>{{product.shopContact}}</li>
+    <li>{{product.description}}</li>
+    <li>{{product.email}}</li>
+
+    <a href="{% url 'home'%}"> Back to home !</a>
+    <a href="{% url 'edit' product.id%}"> Update</a>
+</ul>
+
+{%endblock body%}

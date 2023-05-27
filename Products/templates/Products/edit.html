@@ -1,0 +1,54 @@
+{%extends 'Products/layout.html'%}
+
+
+{%block body%}
+
+<form action="{% url 'update' product.id %}" method="POST">
+    {% csrf_token %}
+    <div>
+        <br>
+        <p>
+            <h3>Update Details</h3>
+        </p>
+    </div>
+    <div>
+        <p>Product Name:</p>
+        <div>
+            <input type="text" name="pName" value="{{product.pName}}" />
+        </div>
+    </div>
+    <div>
+        <p>Shop Name</p>
+        <div>
+            <input type="text" name="nameShop" value="{{product.nameShop}}" />
+        </div>
+    </div>
+    <div>
+        <p>Shop Contact</p>
+        <div>
+            <input type="text" name="shopContact" value="{{product.shopContact}}" />
+        </div>
+    </div>
+    <div>
+        <p>Description Of The Product</p>
+        <div>
+            <input type="text" name="description" value="{{product.description}}" />
+        </div>
+    </div>
+
+    <div>
+        <p>Email Of The Owner</p>
+        <div>
+            <input type="email" name="email" value="{{product.email}}" />
+        </div>
+    </div>
+
+
+    <div>
+        <br>
+        <button type="submit">Update</button>
+    </div>
+
+</form>
+
+{%endblock body%}
