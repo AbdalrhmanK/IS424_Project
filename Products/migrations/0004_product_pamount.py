@@ -10,9 +10,10 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='product',
-            name='pAmount',
-            field=models.DecimalField(decimal_places=2, default='10$', max_digits=10),
-        ),
+       migrations.AddField(
+    model_name='product',
+    name='pAmount',
+    field=models.DecimalField(decimal_places=2, default=0.00, max_digits=10),
+),
+
     ]
